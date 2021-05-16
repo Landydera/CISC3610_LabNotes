@@ -1,0 +1,59 @@
+<!--Islande Derazin-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<!--Since we are not submitted the form anywhere we are only using "get"-->
+
+<form action="get">
+<tr>
+<td>Title Box</td>
+<td><input type="text" size="40"></input></td>
+</tr>
+
+<tr>
+<td>Text area</td>
+<td><textarea
+row="10"
+column="80"></textarea></td>
+</tr>
+</table>
+<table align="center">
+<tr>
+<td><button input type="reset" value="CLEAR">Clear</button></td>
+
+</tr>
+
+
+</form>
+<script>
+  var title=document.getElementById("title");
+  var notes = document.getElementById("myInput");
+  var clearButton=document.getElementById("clear");
+  
+  notes.oninput=function(){
+    setValue();
+  }
+
+  window.onload=function(){
+    title.value=localStorage.getItem("title");
+    notes.value=localStorage.getItem("myInput");
+  }
+
+ clearButton.onclick=function(){
+    title.value='';
+    notes.value='';
+    setValue();
+  }
+
+  function setValue(){
+    localStorage.setItem("title",title.value);
+    localStorage.setItem("notes",myInput.value)
+  }
+  
+
+</script>
+
+</body>
+</html>
